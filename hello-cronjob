@@ -1,0 +1,27 @@
+-task
+1
+00
+ Code Issues 0 Pull requests 0 Actions Projects 0 Wiki Security Insights
+Kubernetes-task/happy-pod.yaml
+@umar832 umar832 Create Cronjob call happy
+e37fe93 18 hours ago
+18 lines (18 sloc)  376 Bytes
+  
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: hello
+spec:
+  schedule: "*/10 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: hello
+            image: busybox
+            args:
+            - /bin/sh
+            - -c
+            - date; echo Hello from the Kubernetes cluster
+          restartPolicy: OnFailurec
